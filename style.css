@@ -1,0 +1,78 @@
+/* 1. The Canvas (Global Styles) */
+:root {
+    --ink: #1a1a1a;
+    --paper: #fdfaf6;
+    --accent: #d97706; /* Amber-600 */
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--paper);
+    /* Add a subtle paper grain texture */
+    background-image: url("https://www.transparenttextures.com/patterns/handmade-paper.png");
+    color: var(--ink);
+    scroll-behavior: smooth;
+}
+
+/* 2. Custom Typography */
+h1, h2, h3 {
+    letter-spacing: -0.02em;
+}
+
+.handwritten {
+    color: var(--accent);
+    transform: rotate(-1deg);
+    display: inline-block;
+}
+
+/* 3. The "Physical" Book Cards */
+.book-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    border-radius: 2px;
+}
+
+/* This creates the "3D Lift" effect when you hover */
+.book-card:hover {
+    transform: translateY(-12px) rotate(1deg) scale(1.02);
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Add a "Book Spine" detail to the left edge of images */
+.book-card img {
+    border-left: 4px solid rgba(0,0,0,0.1);
+}
+
+/* 4. Buttons with "Ink" Hover */
+button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    letter-spacing: 1px;
+    background-color: var(--accent);
+}
+
+/* 5. Custom Scrollbar (The "Ink" Trail) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--paper);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--ink);
+    border-radius: 10px;
+}
+
+/* 6. Mobile Responsiveness Adjustments */
+@media (max-width: 768px) {
+    .handwritten {
+        font-size: 1.5rem;
+    }
+}
